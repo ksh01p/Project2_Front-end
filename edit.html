@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Friend</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+    <h1>Edit Friend</h1>
+    <form id="editForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="age">Age:</label>
+        <input type="number" id="age" required>
+    </form>
+    <button id="editButton">Edit</button>
+    <script>
+        // Sample friend data (you can replace this with your own data source)
+        const friend = { name: "John", age: 30 }; // Replace with actual friend data
+
+        // Populate the form fields with the existing data
+        document.getElementById("name").value = friend.name;
+        document.getElementById("age").value = friend.age;
+
+        // Edit button
+        document.getElementById("editButton").addEventListener("click", function () {
+            // Validate the form fields (implement your own validation)
+
+            // Get the updated data from the form
+            const updatedName = document.getElementById("name").value;
+            const updatedAge = document.getElementById("age").value;
+
+            // Show a confirmation dialog (use a more stylish dialog in production)
+            const confirmEdit = confirm("Are you sure you want to edit this friend?");
+            if (confirmEdit) {
+                // Update the friend's data (replace this with your data storage method)
+                friend.name = updatedName;
+                friend.age = updatedAge;
+
+                // Redirect to the view page or perform any desired action
+                window.location.href = "view.html";
+            }
+        });
+    </script>
+</body>
+</html>

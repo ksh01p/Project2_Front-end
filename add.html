@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Friend</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+    <h1>Add Friend</h1>
+    <form id="addForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="age">Age:</label>
+        <input type="number" id="age" required>
+    </form>
+    <button id="addButton">Add</button>
+    <script>
+        document.getElementById("addButton").addEventListener("click", function () {
+            // Validate the form fields (implement your own validation)
+
+            // Get the form data and add the friend to the list (simplified)
+            const name = document.getElementById("name").value;
+            const age = document.getElementById("age").value;
+
+            // Add the friend to the friends array (replace this with your data storage method)
+            friends.push({ name, age });
+
+            // Redirect to the index page (or any other desired action)
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>
