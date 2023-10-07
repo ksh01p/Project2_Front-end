@@ -22,9 +22,17 @@ if (friend) {
         const confirmDelete = confirm("Are you sure you want to delete this friend?");
         if (confirmDelete) {
             // Implement friend deletion logic (remove from the friends array)
-            // Redirect to the index page or perform any desired action
-            alert("Friend deleted!");
-            window.location.href = "index.html";
+            const friendIndex = friends.findIndex((f) => f.id == friendId);
+            if (friendIndex !== -1) {
+                friends.splice(friendIndex, 1); // Remove the friend from the array
+                // Optionally, you can update your data source or send a request to a server to delete the friend.
+
+                // Redirect to the index page or perform any desired action
+                alert("Friend deleted!");
+                window.location.href = "index.html";
+            } else {
+                alert("Friend not found!");
+            }
         }
     });
 } else {

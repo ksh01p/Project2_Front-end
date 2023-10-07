@@ -1,45 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>View Friend</title>
+    <title>Friend Details</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
     <h1>Friend Details</h1>
-    <!-- Display friend's details here -->
     <div id="friendDetails">
         <!-- Friend details will be displayed dynamically using JavaScript -->
     </div>
-    <a href="edit.html">Edit</a>
-    <button id="deleteButton">Delete</button>
+    <a href="index.html">Back to Friend List</a>
+    <button id="deleteButton">Delete Friend</button> <!-- Added a delete button -->
     <script>
-        // Sample friend data (you can replace this with your own data source)
-        const friend = { name: "John", age: 30, contact: 0100000000, birthday:20000505, relationship: schoolfriend, address: somewhere }; // Replace with actual friend data
+        // Function to retrieve friends from localStorage
+        function getFriendsFromLocalStorage() {
+            return JSON.parse(localStorage.getItem("friends")) || [];
+        }
 
-        // Display friend details
-        const friendDetails = document.getElementById("friendDetails");
-        friendDetails.innerHTML = `
-            <h2>${friend.name}</h2>
-             <p>Age: ${friend.age}</p>
-             <p>Contact: ${friend.contact}</p>
-             <p>Birthday: ${friend.birthday}</p>
-             <p>Relationship: ${friend.relationship}</p>
-             <p>Address: ${friend.address}</p>
-            
-        `;
+        // Find the friend with the matching ID
+        const friendId = new URLSearchParams(window.location.search).get("id");
+        const friends = getFriendsFromLocalStorage();
+        const friend = friends.find((f) => f.id == friendId);
 
-        // Delete button
-        const deleteButton = document.getElementById("deleteButton");
-        deleteButton.addEventListener("click", () => {
-            // Show a confirmation dialog (use a more stylish dialog in production)
-            const confirmDelete = confirm("Are you sure you want to delete this friend?");
-            if (confirmDelete) {
-                // Implement friend deletion logic (remove from the friends array)
-                // Redirect to the index page or perform any desired action
-                alert("Friend deleted!");
-                window.location.href = "index.html";
-            }
-        });
+        if (friend) {
+            // Display friend details
+            const friendDetails = document.getElementById("friendDetails");
+            friendDetails.innerHTML = `
+                <h2>${friend.name}</h2>
+                <p>Age: ${friend.age}</p>
+                <p>Contact: ${friend.contact}</p>
+                <p>Birthday: ${friend.birthday}</p>
+                <p>Relationship: ${friend.relationship}</p>
+                <p>Address: ${friend.address}</p>
+            `;
+
+            // Delete button
+            const deleteButton = document.getElementById("deleteButton");
+            deleteButton.addEventListener("click", () => {
+                // Show a confirmation dialog (use a more stylish dialog in production)
+                const confirmDelete = confirm("Are you sure you want to delete this friend?");
+                if (confirmDelete) {
+                    // Remove the friend from the array
+                    const friendIndex = friends.findIndex((f) => f.id == friendId);
+                    if (friendIndex !== -1) {
+                        friends.splice(friendIndex, 1);
+
+                        // Update localStorage with the modified data
+                        localStorage.setItem("friends", JSON.stringify(friends));
+
+                        // Alert that the friend is deleted (you can use a better UI notification)
+                        alert("Friend deleted!");
+
+                        // Redirect to the index page or perform any desired action
+                        window.location.href = "index.html";
+                    } else {
+                        alert("Friend not found!");
+                    }
+                }
+            });
+        } else {
+            // Handle the case where the friend ID is not found
+            alert("Friend not found!");
+            window.location.href = "index.html";
+        }
     </script>
 </body>
 </html>
