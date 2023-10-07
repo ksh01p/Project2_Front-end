@@ -7,16 +7,30 @@
 <body>
     <h1>Friend List</h1>
     <ul id="friendList">
-        <!-- Friend list items will be added dynamically using JavaScript -->
+        
     </ul>
     <a href="add.html">Add Friend</a>
     <script>
         // Sample friend data (you can replace this with your own data source)
         const friends = [
-            { name: "John", age: 30 },
-            { name: "Alice", age: 25 },
-            // Add more friend objects here
-        ];
+    {
+        name: "John Doe",
+        age: 30,
+        contact: "123-456-7890",
+        birthday: "January 15, 1990",
+        relationship: "Best Friend",
+        address: "123 Main St, Cityville"
+    },
+    {
+        name: "Alice Smith",
+        age: 25,
+        contact: "987-654-3210",
+        birthday: "March 5, 1995",
+        relationship: "Co-worker",
+        address: "456 Elm St, Townsville"
+    },
+    // Add more friend objects here
+];
 
         // Function to populate the friend list
         function populateFriendList() {
@@ -25,12 +39,11 @@
 
             friends.forEach((friend) => {
                 const listItem = document.createElement("li");
-                listItem.innerHTML = `<a href="view.html">${friend.name}</a> (Age: ${friend.age})`;
+                listItem.innerHTML = `<a href="view.html">${friend.name}</a> (Age: ${friend.age} / Contact: ${friend.contact}) / Birthday: ${friend.birthday} / Relationship: ${friend.relationship} / Address: ${friend.address})`;
                 friendList.appendChild(listItem);
             });
         }
-
-        // Call the populateFriendList function when the page loads
+        
         window.addEventListener("load", populateFriendList);
     </script>
 </body>

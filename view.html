@@ -14,14 +14,18 @@
     <button id="deleteButton">Delete</button>
     <script>
         // Sample friend data (you can replace this with your own data source)
-        const friend = { name: "John", age: 30 }; // Replace with actual friend data
+        const friend = { name: "John", age: 30, contact: 0100000000, birthday:20000505, relationship: schoolfriend, address: somewhere }; // Replace with actual friend data
 
         // Display friend details
         const friendDetails = document.getElementById("friendDetails");
         friendDetails.innerHTML = `
             <h2>${friend.name}</h2>
-            <p>Age: ${friend.age}</p>
-            <!-- Display other friend details here -->
+             <p>Age: ${friend.age}</p>
+             <p>Contact: ${friend.contact}</p>
+             <p>Birthday: ${friend.birthday}</p>
+             <p>Relationship: ${friend.relationship}</p>
+             <p>Address: ${friend.address}</p>
+            
         `;
 
         // Delete button

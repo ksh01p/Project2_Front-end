@@ -5,7 +5,6 @@ const friends = [
         age: 30,
         contact: "123-456-7890",
         birthday: "January 15, 1990",
-        email: "john@example.com",
         relationship: "Best Friend",
         address: "123 Main St, Cityville"
     },
@@ -14,7 +13,6 @@ const friends = [
         age: 25,
         contact: "987-654-3210",
         birthday: "March 5, 1995",
-        email: "alice@example.com",
         relationship: "Co-worker",
         address: "456 Elm St, Townsville"
     },
@@ -33,7 +31,6 @@ function populateFriendList() {
                 <p>Age: ${friend.age}</p>
                 <p>Contact: ${friend.contact}</p>
                 <p>Birthday: ${friend.birthday}</p>
-                <p>Email: ${friend.email}</p>
                 <p>Relationship: ${friend.relationship}</p>
                 <p>Address: ${friend.address}</p>
             </div>

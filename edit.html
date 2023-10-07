@@ -9,8 +9,22 @@
     <form id="editForm">
         <label for="name">Name:</label>
         <input type="text" id="name" required>
+
         <label for="age">Age:</label>
         <input type="number" id="age" required>
+
+        <label for="contact">Contact:</label>
+        <input type="number" id="contact" required>
+
+        <label for="birthday">Birthday:</label>
+        <input type="number" id="birthday" required>
+
+        <label for="relationship">Relationship:</label>
+        <input type="text" id="relationship" required>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" required>
+
     </form>
     <button id="editButton">Edit</button>
     <script>
@@ -20,6 +34,10 @@
         // Populate the form fields with the existing data
         document.getElementById("name").value = friend.name;
         document.getElementById("age").value = friend.age;
+        document.getElementById("contact").value = friend.contact;
+        document.getElementById("birthday").value = friend.birthday;
+        document.getElementById("relationship").value = friend.realtionship;
+        document.getElementById("address").value = friend.address;
 
         // Edit button
         document.getElementById("editButton").addEventListener("click", function () {
@@ -28,13 +46,22 @@
             // Get the updated data from the form
             const updatedName = document.getElementById("name").value;
             const updatedAge = document.getElementById("age").value;
+            const updatedContact = document.getElementById("contact").value;
+            const updatedBirthday = document.getElementById("birthday").value;
+            const updaterelationship = document.getElementById("relationship").value;
+            const updatedAddress = document.getElementById("address").value;
 
+            
             // Show a confirmation dialog (use a more stylish dialog in production)
             const confirmEdit = confirm("Are you sure you want to edit this friend?");
             if (confirmEdit) {
                 // Update the friend's data (replace this with your data storage method)
                 friend.name = updatedName;
                 friend.age = updatedAge;
+                friend.contact = updatedContact
+                friend.birthday = updatedBirthday
+                friend.realtionship = updaterelationship
+                friend.address = updatedAddress
 
                 // Redirect to the view page or perform any desired action
                 window.location.href = "view.html";

@@ -1,77 +1,53 @@
-/* Reset some default browser styles */
-body, h1, h2, p, ul, li, form, button {
+/* Reset some default styles to ensure consistency */
+body, ul {
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
-/* Basic styling for the body */
+/* Basic styling for the page */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
-}
-
-/* Page header */
-h1 {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
+    background-color: #f0f0f0;
     text-align: center;
-}
-
-/* Container for the main content */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
     padding: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Form styles */
-form {
+h1 {
+    color: #333;
+}
+
+#friendList {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
+#friendList li {
+    margin-bottom: 10px;
+}
+
+#friendList a {
+    text-decoration: none;
+    color: #333;
     font-weight: bold;
 }
 
-input[type="text"],
-input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+#friendList a:hover {
+    color: #007bff;
 }
 
-/* Buttons */
-button {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
 }
 
-/* List styles */
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    padding: 10px 0;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
+a:hover {
+    text-decoration: underline;
 }

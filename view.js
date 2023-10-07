@@ -8,6 +8,10 @@ if (friend) {
     friendDetails.innerHTML = `
         <h2>${friend.name}</h2>
         <p>Age: ${friend.age}</p>
+        <p>Contact: ${friend.contact}</p>
+        <p>Birthday: ${friend.birthday}</p>
+        <p>Relationship: ${friend.relationship}</p>
+        <p>Address: ${friend.address}</p>
         <!-- Display other friend details here -->
     `;
 
