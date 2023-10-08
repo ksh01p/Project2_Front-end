@@ -3,6 +3,39 @@
 <head>
     <title>Add Friend</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <style>
+         @media screen and (min-width: 1200px) {
+            .friend-info {
+                width: 50%;
+                margin: 10px auto;
+            }
+
+            #friendList {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+        }
+
+        @media screen and (max-width: 1199px) and (min-width: 768px) {
+            .friend-info {
+                width: 80%;
+                margin: 10px auto;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .friend-info {
+                width: 90%;
+                margin: 10px auto;
+            }
+
+            a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>Add Friend</h1>
@@ -27,18 +60,16 @@
     </form>
     <button id="addButton">Add</button>
     <script>
-        // Function to retrieve friends from localStorage
         function getFriendsFromLocalStorage() {
             return JSON.parse(localStorage.getItem("friends")) || [];
         }
-
-        // Function to add a friend to localStorage
+    
         function addFriendToLocalStorage(newFriend) {
             const friends = getFriendsFromLocalStorage();
             friends.push(newFriend);
             localStorage.setItem("friends", JSON.stringify(friends));
         }
-
+    
         document.getElementById("addButton").addEventListener("click", function () {
             const name = document.getElementById("name").value;
             const age = document.getElementById("age").value;
@@ -46,8 +77,18 @@
             const birthday = document.getElementById("birthday").value;
             const relationship = document.getElementById("relationship").value;
             const address = document.getElementById("address").value;
+    
+            if (!name.trim()) {
+                alert("Name is a required field.");
+                return; 
+            }
+    
+            if (isNaN(age) || age === "") {
+                alert("Age must be a valid number.");
+                return; 
+            }
+    
 
-            // Create a new friend object
             const newFriend = {
                 name,
                 age,
@@ -56,16 +97,16 @@
                 relationship,
                 address
             };
-
-            // Add the new friend to localStorage
+    
+          
             addFriendToLocalStorage(newFriend);
-
-            // Alert that the friend is added (you can use a better UI notification)
+    
+            
             alert(`${newFriend.name} has been added to your friend list!`);
-
-            // Redirect to the index page (or any other desired action)
+    
             window.location.href = "index.html";
         });
     </script>
+    
 </body>
 </html>

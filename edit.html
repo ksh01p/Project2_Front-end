@@ -3,6 +3,39 @@
 <head>
     <title>Edit Friend</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <style>
+         @media screen and (min-width: 1200px) {
+            .friend-info {
+                width: 50%;
+                margin: 10px auto;
+            }
+
+            #friendList {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+        }
+
+        @media screen and (max-width: 1199px) and (min-width: 768px) {
+            .friend-info {
+                width: 80%;
+                margin: 10px auto;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .friend-info {
+                width: 90%;
+                margin: 10px auto;
+            }
+
+            a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>Edit Friend</h1>
@@ -27,15 +60,11 @@
     </form>
     <button id="editButton">Edit</button>
     <script>
-        // Function to retrieve friends from localStorage
         function getFriendsFromLocalStorage() {
             return JSON.parse(localStorage.getItem("friends")) || [];
         }
 
         document.getElementById("editButton").addEventListener("click", function () {
-            // Validate the form fields (implement your own validation)
-
-            // Get the updated data from the form
             const updatedName = document.getElementById("name").value;
             const updatedAge = document.getElementById("age").value;
             const updatedContact = document.getElementById("contact").value;
@@ -43,12 +72,21 @@
             const updatedRelationship = document.getElementById("relationship").value;
             const updatedAddress = document.getElementById("address").value;
 
-            // Find the friend with the matching ID
+            if (!updatedName.trim()) {
+                alert("Name is a required field.");
+                return; 
+            }
+
+            if (isNaN(updatedAge) || updatedAge === "") {
+                alert("Age must be a valid number.");
+                return; 
+            }
+
             const friendId = new URLSearchParams(window.location.search).get("id");
             const friends = getFriendsFromLocalStorage();
             const friend = friends.find((f) => f.id == friendId);
 
-            // Update the friend's data
+            
             if (friend) {
                 friend.name = updatedName;
                 friend.age = updatedAge;
@@ -57,16 +95,12 @@
                 friend.relationship = updatedRelationship;
                 friend.address = updatedAddress;
 
-                // Update localStorage with the modified data
                 localStorage.setItem("friends", JSON.stringify(friends));
 
-                // Alert that the friend is edited (you can use a better UI notification)
                 alert("Friend edited!");
 
-                // Redirect to the view page or perform any desired action
                 window.location.href = `view.html?id=${friend.id}`;
             } else {
-                // Handle the case where the friend ID is not found
                 alert("Friend not found!");
                 window.location.href = "index.html";
             }
