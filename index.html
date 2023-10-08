@@ -7,17 +7,14 @@
 <body>
     <h1>Friend List</h1>
     <ul id="friendList">
-        <!-- Friend list will be populated dynamically using JavaScript -->
     </ul>
     <a href="add.html">Add Friend</a>
     <script>
-        // Function to retrieve friends from localStorage
         function getFriendsFromLocalStorage() {
             return JSON.parse(localStorage.getItem("friends")) || [];
         }
 
-        // Function to populate the friend list
-        function populateFriendList(friends) { // Pass friends as a parameter
+        function populateFriendList(friends) { 
             const friendList = document.getElementById("friendList");
             friendList.innerHTML = "";
 
@@ -38,7 +35,7 @@
             });
         }
 
-        // Call the populateFriendList function when the page loads
+
         window.addEventListener("load", () => {
             const friends = getFriendsFromLocalStorage();
             populateFriendList(friends);

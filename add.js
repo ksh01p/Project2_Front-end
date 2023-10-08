@@ -1,9 +1,8 @@
-// Function to add a friend and validate the form
 function addFriend() {
     const addForm = document.getElementById("addForm");
     const addButton = document.getElementById("addButton");
 
-    // Validate the form fields (implement your own validation)
+   
     function validateForm() {
         const name = addForm.querySelector("#name").value;
         const age = addForm.querySelector("#age").value;
@@ -13,12 +12,12 @@ function addFriend() {
         const address = addForm.querySelector("#address").value;
 
 
-    // Add a click event listener to the "Add Friend" button
+   
     addButton.addEventListener("click", (e) => {
         e.preventDefault();
 
 
-        // Get the form data and add the friend to the list (simplified)
+       
         const name = addForm.querySelector("#name").value;
         const age = addForm.querySelector("#age").value;
         const contact = addForm.querySelector("#contact").value;
@@ -26,7 +25,7 @@ function addFriend() {
         const relationship = addForm.querySelector("#relationship").value;
         const address = addForm.querySelector("#address").value;
 
-        // Create a new friend object
+
         const newFriend = {
             name,
             age,
