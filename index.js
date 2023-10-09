@@ -1,25 +1,17 @@
-// index.js - Remove the sample friend data
 
-// Function to get friends from localStorage
 function getFriendsFromLocalStorage() {
-    // localStorage에서 친구 데이터 가져오기
     const friendsData = localStorage.getItem("friends");
 
-    // localStorage에 데이터가 없을 경우 빈 배열을 반환
     return JSON.parse(friendsData) || [];
 }
 
-// Function to save friends to localStorage
 function saveFriendsToLocalStorage(friends) {
-    // 친구 데이터를 문자열로 변환하여 localStorage에 저장
     localStorage.setItem("friends", JSON.stringify(friends));
 }
 
-// Function to populate the friend list
 function populateFriendList() {
     const friendList = document.getElementById("friendList");
 
-    // localStorage에서 친구 데이터 불러오기
     const friends = getFriendsFromLocalStorage();
 
     friends.forEach((friend, index) => {
@@ -39,10 +31,9 @@ function populateFriendList() {
     });
 }
 
-// Call the populateFriendList function when the page loads
+
 window.addEventListener("load", populateFriendList);
 
-// 예제: 새로운 친구 데이터를 추가하고 localStorage에 저장
 const newFriend = {
     name: "새로운 친구",
     age: 30,

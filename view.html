@@ -1,4 +1,3 @@
-<!-- view.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +30,6 @@
                 relationship: "Family",
                 address: "456 Elm St"
             }
-            // 다른 친구 정보도 추가 가능
         ];
         const friend = friends[friendId];
 
@@ -50,7 +48,6 @@
             deleteButton.addEventListener("click", () => {
                 const confirmDelete = confirm("Are you sure you want to delete this friend?");
                 if (confirmDelete) {
-                    // Implement your own deletion logic here
                     alert("Friend deleted!");
                     window.location.href = "index.html";
                 }
