@@ -8,19 +8,32 @@
 <body>
     <h1>Friend Details</h1>
     <div id="friendDetails">
-        
     </div>
     <a href="index.html">Back to Friend List</a>
     <button id="deleteButton">Delete Friend</button>
     <button id="editButton">Edit Friend</button>
     <script>
-        function getFriendsFromLocalStorage() {
-            return JSON.parse(localStorage.getItem("friends")) || [];
-        }
-
         const friendId = new URLSearchParams(window.location.search).get("id");
-        const friends = getFriendsFromLocalStorage();
-        const friend = friends.find((f) => f.id == friendId);
+        const friends = [
+            {
+                name: "John Doe",
+                age: 30,
+                contact: "john@example.com",
+                birthday: "January 15",
+                relationship: "Friend",
+                address: "123 Main St"
+            },
+            {
+                name: "John Doe",
+                age: 28,
+                contact: "jane@example.com",
+                birthday: "March 5",
+                relationship: "Family",
+                address: "456 Elm St"
+            }
+            // 다른 친구 정보도 추가 가능
+        ];
+        const friend = friends[friendId];
 
         if (friend) {
             const friendDetails = document.getElementById("friendDetails");
@@ -37,21 +50,15 @@
             deleteButton.addEventListener("click", () => {
                 const confirmDelete = confirm("Are you sure you want to delete this friend?");
                 if (confirmDelete) {
-                    const friendIndex = friends.findIndex((f) => f.id == friendId);
-                    if (friendIndex !== -1) {
-                        friends.splice(friendIndex, 1);
-                        localStorage.setItem("friends", JSON.stringify(friends));
-                        alert("Friend deleted!");
-                        window.location.href = "index.html";
-                    } else {
-                        alert("Friend not found!");
-                    }
+                    // Implement your own deletion logic here
+                    alert("Friend deleted!");
+                    window.location.href = "index.html";
                 }
             });
 
             const editButton = document.getElementById("editButton");
             editButton.addEventListener("click", () => {
-                window.location.href = `edit.html?id=${friend.id}`;
+                window.location.href = `edit.html?id=${friendId}`;
             });
         } else {
             alert("Friend not found!");

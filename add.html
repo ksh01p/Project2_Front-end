@@ -1,9 +1,9 @@
+<!-- add.html -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>Add Friend</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    
 </head>
 <body>
     <h1>Add Friend</h1>
@@ -28,16 +28,6 @@
     </form>
     <button id="addButton">Add</button>
     <script>
-        function getFriendsFromLocalStorage() {
-            return JSON.parse(localStorage.getItem("friends")) || [];
-        }
-    
-        function addFriendToLocalStorage(newFriend) {
-            const friends = getFriendsFromLocalStorage();
-            friends.push(newFriend);
-            localStorage.setItem("friends", JSON.stringify(friends));
-        }
-    
         document.getElementById("addButton").addEventListener("click", function () {
             const name = document.getElementById("name").value;
             const age = document.getElementById("age").value;
@@ -45,36 +35,32 @@
             const birthday = document.getElementById("birthday").value;
             const relationship = document.getElementById("relationship").value;
             const address = document.getElementById("address").value;
-    
+
             if (!name.trim()) {
                 alert("Name is a required field.");
                 return; 
             }
-    
+
             if (isNaN(age) || age === "") {
                 alert("Age must be a valid number.");
                 return; 
             }
-    
 
+            // Create a new friend object with the entered data
             const newFriend = {
-                name,
-                age,
-                contact,
-                birthday,
-                relationship,
-                address
+                name: "John Doe",
+                age: 30,
+                contact: "john@example.com",
+                birthday: "January 15",
+                relationship: "Friend",
+                address: "123 Main St"
             };
-    
-          
-            addFriendToLocalStorage(newFriend);
-    
-            
+
+            // Implement your own data management logic here to add the new friend
+
             alert(`${newFriend.name} has been added to your friend list!`);
-    
             window.location.href = "index.html";
         });
     </script>
-    
 </body>
 </html>

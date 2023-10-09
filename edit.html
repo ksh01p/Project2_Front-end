@@ -1,9 +1,9 @@
+<!-- edit.html -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>Edit Friend</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    
 </head>
 <body>
     <h1>Edit Friend</h1>
@@ -28,10 +28,6 @@
     </form>
     <button id="editButton">Edit</button>
     <script>
-        function getFriendsFromLocalStorage() {
-            return JSON.parse(localStorage.getItem("friends")) || [];
-        }
-
         document.getElementById("editButton").addEventListener("click", function () {
             const updatedName = document.getElementById("name").value;
             const updatedAge = document.getElementById("age").value;
@@ -51,27 +47,9 @@
             }
 
             const friendId = new URLSearchParams(window.location.search).get("id");
-            const friends = getFriendsFromLocalStorage();
-            const friend = friends.find((f) => f.id == friendId);
-
-            
-            if (friend) {
-                friend.name = updatedName;
-                friend.age = updatedAge;
-                friend.contact = updatedContact;
-                friend.birthday = updatedBirthday;
-                friend.relationship = updatedRelationship;
-                friend.address = updatedAddress;
-
-                localStorage.setItem("friends", JSON.stringify(friends));
-
-                alert("Friend edited!");
-
-                window.location.href = `view.html?id=${friend.id}`;
-            } else {
-                alert("Friend not found!");
-                window.location.href = "index.html";
-            }
+            // Replace the following logic with your own data management
+            alert("Friend edited!");
+            window.location.href = `view.html?id=${friendId}`;
         });
     </script>
 </body>

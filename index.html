@@ -12,13 +12,29 @@
     
     <a href="add.html">Add Friend</a>
     <script>
-        function getFriendsFromLocalStorage() {
-            return JSON.parse(localStorage.getItem("friends")) || [];
-        }
-        
-        function populateFriendList(friends) { 
+        function populateFriendList() { 
             const friendList = document.getElementById("friendList");
             friendList.innerHTML = "";
+
+            const friends = [
+                {
+                    name: "John Doe",
+                    age: 30,
+                    contact: "john@example.com",
+                    birthday: "January 15",
+                    relationship: "Friend",
+                    address: "123 Main St"
+                },
+                {
+                    name: "John Doe",
+                    age: 28,
+                    contact: "jane@example.com",
+                    birthday: "March 5",
+                    relationship: "Family",
+                    address: "456 Elm St"
+                }
+                // 다른 친구 정보도 추가 가능
+            ];
 
             friends.forEach((friend, index) => {
                 const listItem = document.createElement("li");
@@ -38,8 +54,7 @@
         }
 
         window.addEventListener("load", () => {
-            const friends = getFriendsFromLocalStorage();
-            populateFriendList(friends);
+            populateFriendList();
         });
     </script>
 </body>
