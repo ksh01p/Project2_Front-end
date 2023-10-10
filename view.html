@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>Friend Details</title>
     <link rel="stylesheet" type="text/css" href="css/my.css">
 </head>
@@ -14,23 +15,39 @@
     <script>
         const friendId = new URLSearchParams(window.location.search).get("id");
         const friends = [
-            {
-                name: "John Doe",
-                age: 30,
-                contact: "john@example.com",
-                birthday: "January 15",
-                relationship: "Friend",
-                address: "123 Main St"
-            },
-            {
-                name: "John Doe",
-                age: 28,
-                contact: "jane@example.com",
-                birthday: "March 5",
-                relationship: "Family",
-                address: "456 Elm St"
-            }
-        ];
+        {
+                    name: "김필겸",
+                    age: 24,
+                    contact: "pilgaang@gmail.com",
+                    birthday: "1/15",
+                    relationship: "친구",
+                    address: "전주"
+                },
+                {
+                    name: "김정원",
+                    age: 25,
+                    contact: "joe@mgmail.com",
+                    birthday: "5/5",
+                    relationship: "총학생회",
+                    address: "거제도"
+                },
+                {
+                    name: "김윤아",
+                    age: 22,
+                    contact: "jamy@mgmail.com",
+                    birthday: "5/2",
+                    relationship: "총학생회",
+                    address: "포항"
+                },
+                {
+                    name: "황유상",
+                    age: 20,
+                    contact: "yusang@mgmail.com",
+                    birthday: "7/8",
+                    relationship: "팀 동생",
+                    address: "세종시"
+                }        
+            ];
         const friend = friends[friendId];
 
         if (friend) {
