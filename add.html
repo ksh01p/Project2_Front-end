@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Add Friend</title>
+    <title>친구 추가</title>
     <link rel="stylesheet" type="text/css" href="css/my.css">
 </head>
 <body>
-    <h1>Add Friend</h1>
+    <h1>친구 추가</h1>
     <form id="addForm">
         <label for="name">Name:</label>
         <input type="text" id="name" required>
@@ -37,12 +37,12 @@
             const address = document.getElementById("address").value;
 
             if (!name.trim()) {
-                alert("Name is a required field.");
+                alert("이름을 작성해주세요 ! ");
                 return; 
             }
 
             if (isNaN(age) || age === "") {
-                alert("Age must be a valid number.");
+                alert("나이를 입력해주세요 ! ");
                 return; 
             }
 
@@ -55,7 +55,7 @@
                 address: "123 Main St"
             };
 
-            alert(`${newFriend.name} has been added to your friend list!`);
+            alert(`${newFriend.name} 추가됨 ! `);
             window.location.href = "index.html";
         });
     </script>
