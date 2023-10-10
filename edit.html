@@ -37,18 +37,18 @@
             const updatedAddress = document.getElementById("address").value;
 
             if (!updatedName.trim()) {
-                alert("Name is a required field.");
+                alert("이름을 작성해주세요 ! ");
                 return; 
             }
 
             if (isNaN(updatedAge) || updatedAge === "") {
-                alert("Age must be a valid number.");
+                alert("나이를 추가해주세요 ! ");
                 return; 
             }
 
             const friendId = new URLSearchParams(window.location.search).get("id");
 
-            alert("Friend edited!");
+            alert("친구 정보 수정됨 ! ");
             window.location.href = `view.html?id=${friendId}`;
         });
     </script>
